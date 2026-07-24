@@ -1,0 +1,97 @@
+{
+  "inputs": {
+    "gpu": "h200-sxm",
+    "gpus": 1,
+    "model": "llama-3.1-70b",
+    "users": 16,
+    "quant": "q4",
+    "input_tokens": 4096,
+    "output_tokens": 512,
+    "context": null,
+    "tensor_parallel": 1,
+    "model_name": null,
+    "params_b": null,
+    "active_params_b": null,
+    "layers": 32,
+    "hidden_size": 4096,
+    "gqa_ratio": null,
+    "kv_bits": 16,
+    "vram_utilization": 0.9,
+    "runtime_overhead": 0.08,
+    "bandwidth_utilization": null,
+    "compute_utilization": null,
+    "compute_tflops": null,
+    "calibration_file": null,
+    "json_report": "/mnt/data/llm-capacity-planner/examples/sample-report.json",
+    "list": false
+  },
+  "gpu": {
+    "name": "NVIDIA H200 SXM",
+    "vram_gb": 141,
+    "bandwidth_gbps": 4800,
+    "fp16_tflops": 989,
+    "fp8_tflops": 1979,
+    "int8_tops": 1979,
+    "topology": "nvswitch"
+  },
+  "model": {
+    "name": "Llama 3.1/3.3 70B",
+    "total_params_b": 70,
+    "active_params_b": 70,
+    "layers": 80,
+    "hidden_size": 8192,
+    "gqa_ratio": 0.125
+  },
+  "capacity": {
+    "weights_gb": 39.375,
+    "runtime_overhead_gb": 3.15,
+    "kv_per_request_gb": 1.50994944,
+    "usable_gb": 126.9,
+    "fixed_gb": 42.525,
+    "max_concurrency": 55
+  },
+  "estimates": [
+    {
+      "scenario": "conservative",
+      "prompt_tps": 5142.937752890614,
+      "output_tps": 367.1462273439475,
+      "per_user_tps": 22.946639208996718,
+      "ttft_s": 12.786490743010042,
+      "itl_ms": 43.57936649859944,
+      "request_latency_s": 35.055547023794354,
+      "requests_per_s": 0.7170824752811474,
+      "decode_compute_bound_tps": 5809.256047078242,
+      "decode_bandwidth_bound_tps": 431.93673805170295,
+      "prefill_compute_bound_tps": 6050.515003400723,
+      "prefill_bandwidth_bound_tps": 473248.12581045256
+    },
+    {
+      "scenario": "nominal",
+      "prompt_tps": 8906.358085005866,
+      "output_tps": 624.4571127261763,
+      "per_user_tps": 39.02856954538602,
+      "ttft_s": 7.383961026398754,
+      "itl_ms": 25.622255994729905,
+      "request_latency_s": 20.476933839705737,
+      "requests_per_s": 1.2196427982933131,
+      "decode_compute_bound_tps": 9294.809675325188,
+      "decode_bandwidth_bound_tps": 678.7577312241046,
+      "prefill_compute_bound_tps": 9680.824005441158,
+      "prefill_bandwidth_bound_tps": 743675.6262735684
+    },
+    {
+      "scenario": "optimistic",
+      "prompt_tps": 13475.707015574088,
+      "output_tps": 853.0133524038201,
+      "per_user_tps": 53.31333452523876,
+      "ttft_s": 4.882026910459531,
+      "itl_ms": 18.7570334683642,
+      "request_latency_s": 14.466871012793638,
+      "requests_per_s": 1.6660417039137112,
+      "decode_compute_bound_tps": 13477.47402922152,
+      "decode_bandwidth_bound_tps": 888.555575420646,
+      "prefill_compute_bound_tps": 14037.194807889675,
+      "prefill_bandwidth_bound_tps": 973539.0016672168
+    }
+  ]
+}
