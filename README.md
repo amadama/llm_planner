@@ -1,2 +1,2 @@
 # llm_planner
-llm capacity planner
+Transparent roofline-based LLM inference capacity planner
