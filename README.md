@@ -21,7 +21,7 @@ PYTHONPATH=src python -m llm_capacity_planner --list
 ```bash
 PYTHONPATH=src python -m llm_capacity_planner \
   --gpu h200-sxm \
-  --gpus 1 \
+  --gpus 8 \
   --model llama-3.1-70b \
   --quant q4 \
   --users 16 \
@@ -44,8 +44,13 @@ This is an analytical capacity planner, not a kernel simulator. Uncalibrated res
 ## GLM-5.2 example
 
 ```bash
-PYTHONPATH=src llm_capacity_planner --gpu h200-sxm --gpus 8 --tensor-parallel 8 \
-  --model glm-5.2 --quant fp8 --users 32 \
+PYTHONPATH=src python -m llm_capacity_planner \
+  --gpu h200-sxm \
+  --gpus 8 \
+  --tensor-parallel 8 \
+  --model glm-5.2 \
+  --quant fp8 \
+  --users 32 \
   --input-tokens 4096 --output-tokens 512
 ```
 
