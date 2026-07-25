@@ -44,7 +44,7 @@ This is an analytical capacity planner, not a kernel simulator. Uncalibrated res
 ## GLM-5.2 example
 
 ```bash
-llm-capacity-planner --gpu h200-sxm --gpus 8 --tensor-parallel 8 \
+PYTHONPATH=src llm_capacity_planner --gpu h200-sxm --gpus 8 --tensor-parallel 8 \
   --model glm-5.2 --quant fp8 --users 32 \
   --input-tokens 4096 --output-tokens 512
 ```
